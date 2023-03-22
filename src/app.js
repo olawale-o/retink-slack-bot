@@ -1,9 +1,12 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const app = express();
+const { App } = require('@slack/bolt');
 
-
-app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-module.exports = app;
+module.exports = (config) => {
+  const app = new App({
+    token: config.get('slack.bot_token'),
+    signingSecret: config.get('slack.signing_secret'),
+    socketMode: config.get('env') === 'development' || config.get('env') === 'test',
+    appToken: config.get('slack.app_token'),
+    port: config.get('port'),
+  });
+  return app;
+};
