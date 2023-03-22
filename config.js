@@ -26,6 +26,11 @@ const config = convict({
       format: String,
       default: '',
     },
+    app_token: {
+      doc: 'Slack app token',
+      format: String,
+      default: '',
+    },
   },
 });
 
