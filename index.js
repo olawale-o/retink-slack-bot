@@ -3,7 +3,11 @@ const app = require('./src/app')(config);
 
 app.message('hello', require('./src/messages/hello.message'));
 
-app.action('button_click', require('./src/events/button_click.event'));
+app.action('button_click', require('./src/events/publishers/button_click.event'));
+
+app.event('member_joined_channel', require('./src/events/subscribers/member_joined.event'));
+
+app.event('member_left_channel', require('./src/events/subscribers/member_left.event'));
 
 (async () => {
   // Start your app
