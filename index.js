@@ -1,40 +1,9 @@
 const config = require('./config');
 const app = require('./src/app')(config);
 
-app.message('hello', async ({ message, say }) => {
-  console.log({
-    message,
-  });
-  await say({
-    blocks: [
-      {
-        type: 'section',
-        text: {
-          type: 'mrkdwn',
-          text: `Hey there <@${message.user}>!`,
-        },
-        accessory: {
-          type: 'button',
-          text: {
-            type: 'plain_text',
-            text: 'Click Me',
-          },
-          action_id: 'button_click',
-        },
-      }
-    ],
-    text: `Hey there <@${message.user}>!`,
-  });
-});
+app.message('hello', require('./src/messages/hello.message'));
 
-app.action('button_click', async ({ body, ack, say }) => {
-  console.log({
-    body,
-    user: body.user,
-  })
-  await ack();
-  await say(`<@${body.user.id}> clicked the button`);
-});
+app.action('button_click', require('./src/events/button_click.event'));
 
 (async () => {
   // Start your app
