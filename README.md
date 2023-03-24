@@ -9,7 +9,7 @@
 ## What it can do
 - Listen to specific keyword in a message from public channel
 - Post message to a specific channel at a specific time
-- Notify a team members on a specific channel when a member joins or leaves
+- Notify team members on a specific channel when a member joins or leaves
 
 # Getting started
 ## To get a local copy of this repository kindly follow the steps below.
