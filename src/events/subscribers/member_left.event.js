@@ -1,4 +1,4 @@
-exports.modles = async ({ event, client, logger }) => {
+module.exports = async ({ event, client, logger }) => {
   try {
     const result = await client.chat.postMessage({
       channel: event.channel,
