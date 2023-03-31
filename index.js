@@ -15,6 +15,8 @@ app.event('member_joined_channel', require('./src/events/subscribers/member_join
 
 app.event('member_left_channel', require('./src/events/subscribers/member_left.event'));
 
+app.event('message', require('./src/events/subscribers/dm.event'));
+
 
 (async () => {
   await app.start();
